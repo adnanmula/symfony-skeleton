@@ -1,0 +1,24 @@
+services:
+  repository.dbal.connection:
+    class: Doctrine\DBAL\Connection
+    factory: 'Doctrine\DBAL\DriverManager::getConnection'
+    arguments:
+      - url: '%db_url%'
+        driver: 'pdo_pgsql'
+
+  Doctrine\DBAL\Connection:
+    alias: repository.dbal.connection
+
+  repository.dbal.migration:
+    class: AdnanMula\Skeleton\Notifier\Infrastructure\Persistence\Repository\DbalMigration
+    arguments:
+      - '@repository.dbal.connection'
+
+  repository.dbal.base:
+    class: AdnanMula\Skeleton\Notifier\Infrastructure\Persistence\Repository\DbalRepository
+    arguments:
+      - '@repository.dbal.connection'
+
+  repository.dbal.migration.v001:
+    class: AdnanMula\Skeleton\Migrations\Postgres\V001
+    parent: 'repository.dbal.migration'

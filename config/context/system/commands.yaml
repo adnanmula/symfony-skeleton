@@ -1,0 +1,7 @@
+services:
+  command.env.init:
+    class: AdnanMula\Skeleton\Entrypoint\Command\InitEnvironmentCommand
+    arguments:
+      - '@repository.dbal.migration.v001'
+    tags:
+      - { name: console.command, command: 'skeleton:env:init' }
