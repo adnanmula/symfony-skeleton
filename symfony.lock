@@ -1,4 +1,7 @@
 {
+    "adnanmula/coding-standard": {
+        "version": "0.0.1"
+    },
     "adnanmula/telegram-send-message": {
         "version": "0.0.2"
     },
@@ -32,6 +35,9 @@
     "php": {
         "version": "7.4"
     },
+    "phpstan/phpdoc-parser": {
+        "version": "0.4.4"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -55,6 +61,18 @@
     },
     "ramsey/uuid": {
         "version": "4.0.1"
+    },
+    "slevomat/coding-standard": {
+        "version": "6.3.9"
+    },
+    "squizlabs/php_codesniffer": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "0dc9cceda799fd3a08b96987e176a261028a3709"
+        }
     },
     "symfony/amqp-messenger": {
         "version": "v5.1.2"

@@ -61,7 +61,7 @@ final class TelegramGetUpdatesCommand extends Command
         $command = \substr(
             $command,
             0,
-            $isFromGroup !== false && $isFromGroup !== 0 ? $isFromGroup : \strlen($command)
+            $isFromGroup !== false && $isFromGroup !== 0 ? $isFromGroup : \strlen($command),
         );
 
         switch (true) {

@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<ruleset name="Project rules">
+    <rule ref="vendor/adnanmula/coding-standard/src/ruleset.xml" />
+</ruleset>

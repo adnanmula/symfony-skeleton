@@ -11,6 +11,11 @@ class StringValueObject
         $this->value = $value;
     }
 
+    public static function from(string $value): self
+    {
+        return new static($value);
+    }
+
     public function value(): string
     {
         return $this->value;
@@ -24,11 +29,6 @@ class StringValueObject
     final public function jsonSerialize(): string
     {
         return $this->value;
-    }
-
-    public static function from(string $value): self
-    {
-        return new static($value);
     }
 
     public function __toString(): string
