@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf2d52b1c41a1a1424b8e846e2264093",
+    "content-hash": "a3562620e3387d9965cb5eda2ba0be40",
     "packages": [
         {
             "name": "adnanmula/telegram-send-message",
@@ -3160,16 +3160,16 @@
     "packages-dev": [
         {
             "name": "adnanmula/coding-standard",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adnanmula/coding-standard.git",
-                "reference": "57bb77268e3692a0fd5c81289daa9cb77481f569"
+                "reference": "cf9aac0e284084039f2f54c2338ee9caaafc7063"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adnanmula/coding-standard/zipball/57bb77268e3692a0fd5c81289daa9cb77481f569",
-                "reference": "57bb77268e3692a0fd5c81289daa9cb77481f569",
+                "url": "https://api.github.com/repos/adnanmula/coding-standard/zipball/cf9aac0e284084039f2f54c2338ee9caaafc7063",
+                "reference": "cf9aac0e284084039f2f54c2338ee9caaafc7063",
                 "shasum": ""
             },
             "require": {
@@ -3192,7 +3192,7 @@
                     "email": "adnan.mula.bakkar@gmail.com"
                 }
             ],
-            "time": "2020-06-21T14:06:26+00:00"
+            "time": "2020-06-21T17:48:27+00:00"
         },
         {
             "name": "doctrine/instantiator",

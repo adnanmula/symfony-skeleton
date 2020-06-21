@@ -9,7 +9,7 @@ use Symfony\Component\Messenger\Middleware\StackInterface;
 
 final class DbalTransactionalMiddleware implements MiddlewareInterface
 {
-    private $connection;
+    private Connection $connection;
 
     public function __construct(Connection $connection)
     {

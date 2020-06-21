@@ -4,9 +4,9 @@ namespace AdnanMula\Skeleton\Domain\Model\Shared\ValueObject;
 
 class StringValueObject
 {
-    private $value;
+    private string $value;
 
-    protected function __construct(string $value)
+    final protected function __construct(string $value)
     {
         $this->value = $value;
     }
@@ -23,7 +23,7 @@ class StringValueObject
 
     public function equalTo(StringValueObject $other): bool
     {
-        return \get_class($other) === static::class && $this->value === $other->value;
+        return static::class === \get_class($other) && $this->value === $other->value;
     }
 
     final public function jsonSerialize(): string

@@ -20,8 +20,8 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
-        "adnanmula/coding-standard": "^0.0.2",
-        "phpstan/phpstan": "^0.12.11",
+        "adnanmula/coding-standard": "^0.0.3",
+        "phpstan/phpstan": "^0.12.30",
         "phpunit/phpunit": "^9.0"
     },
     "config": {
@@ -58,7 +58,9 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "rm -rf .git/hooks",
+            "cp -r scripts/git-hooks .git/hooks"
         ],
         "post-update-cmd": [
             "@auto-scripts"

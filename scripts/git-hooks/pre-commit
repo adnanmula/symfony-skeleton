@@ -5,7 +5,7 @@ UNIT_TESTS_STATUS=$?
 
 echo "$UNIT_TESTS_SCRIPT"
 
-STAN_TESTS_SCRIPT=$(docker-compose run --user=${UID} --no-deps --rm php sh -c "php -d memory_limit=256M vendor/bin/phpstan analyse -c phpstan.neon" 2>&1)
+STAN_TESTS_SCRIPT=$(docker-compose run --user=${UID} --no-deps --rm php sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon" 2>&1)
 STAN_TESTS_STATUS=$?
 
 echo "$STAN_TESTS_SCRIPT"

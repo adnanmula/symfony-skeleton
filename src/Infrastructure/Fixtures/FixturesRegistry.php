@@ -20,7 +20,9 @@ final class FixturesRegistry
     {
         \array_walk(
             $this->registry,
-            fn (Fixture $fixture) => $this->load($fixture),
+            function (Fixture $fixture) {
+                $this->load($fixture);
+            },
         );
     }
 
@@ -30,7 +32,9 @@ final class FixturesRegistry
 
         \array_walk(
             $dependants,
-            fn (string $fixture) => $this->load($this->registry[$fixture]),
+            function (string $fixture) {
+                $this->load($this->registry[$fixture]);
+            },
         );
 
         if (false === $fixture->isLoaded()) {
