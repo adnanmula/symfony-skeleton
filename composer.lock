@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f680424dcf5f7979e7b3f975f01adf45",
+    "content-hash": "1425f6513ff50513383378bf8245296d",
     "packages": [
         {
             "name": "adnanmula/telegram-send-message",
-            "version": "0.0.3",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adnanmula/telegram-send-message.git",
-                "reference": "955cfbc1ea837465ff25c1316338c78879bbae1d"
+                "reference": "7fe6c383840d7158488f6545838036ec8c8399d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adnanmula/telegram-send-message/zipball/955cfbc1ea837465ff25c1316338c78879bbae1d",
-                "reference": "955cfbc1ea837465ff25c1316338c78879bbae1d",
+                "url": "https://api.github.com/repos/adnanmula/telegram-send-message/zipball/7fe6c383840d7158488f6545838036ec8c8399d2",
+                "reference": "7fe6c383840d7158488f6545838036ec8c8399d2",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "DemigrantSoft\\Telegram\\SendMessage\\": "src/"
+                    "AdnanMula\\Telegram\\SendMessage\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Send telegram messages, nothing more.",
-            "time": "2020-06-21T13:49:27+00:00"
+            "time": "2020-06-22T18:41:13+00:00"
         },
         {
             "name": "beberlei/assert",

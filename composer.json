@@ -6,7 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "adnanmula/telegram-send-message": "^0.0.3",
+        "adnanmula/telegram-send-message": "^0.0.5",
         "beberlei/assert": "^3.2",
         "doctrine/dbal": "^2.10",
         "eleirbag89/telegrambotphp": "^1.3",

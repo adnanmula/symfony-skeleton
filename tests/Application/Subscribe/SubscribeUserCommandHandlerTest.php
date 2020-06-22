@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AdnanMula\Skeleton\Tests;
+namespace AdnanMula\Skeleton\Tests\Application\Subscribe;
 
 use AdnanMula\Skeleton\Application\User\Subscribe\SubscribeUserCommand;
 use AdnanMula\Skeleton\Application\User\Subscribe\SubscribeUserCommandHandler;
