@@ -6,12 +6,12 @@ use Ramsey\Uuid\Uuid;
 
 class UuidValueObject extends StringValueObject
 {
-    public static function from(string $value): self
+    public static function from(string $value)
     {
         return new static(Uuid::fromString($value)->toString());
     }
 
-    public static function v4(): self
+    public static function v4()
     {
         return new static(Uuid::uuid4()->toString());
     }

@@ -32,3 +32,4 @@ imports:
     - { resource: context/system/buses.yaml }
     - { resource: context/system/repositories.yaml }
     - { resource: context/system/commands.yaml }
+    - { resource: context/user/repositories.yaml }

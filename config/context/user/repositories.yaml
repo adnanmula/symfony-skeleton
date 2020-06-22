@@ -1,0 +1,4 @@
+services:
+  AdnanMula\Skeleton\Domain\Model\User\UserRepository:
+    class: AdnanMula\Skeleton\Infrastructure\Persistence\Repository\User\UserDbalRepository
+    parent: 'repository.dbal.base'

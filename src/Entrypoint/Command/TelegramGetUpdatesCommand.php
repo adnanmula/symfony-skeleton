@@ -2,6 +2,9 @@
 
 namespace AdnanMula\Skeleton\Entrypoint\Command;
 
+use AdnanMula\Skeleton\Application\User\Subscribe\SubscribeUserCommand;
+use AdnanMula\Skeleton\Application\User\Unsubscribe\UnsubscribeUserCommand;
+use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserId;
 use AdnanMula\Skeleton\Domain\Service\Communication\CommunicationClient;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -65,8 +68,22 @@ final class TelegramGetUpdatesCommand extends Command
         );
 
         switch (true) {
+            case \in_array($command, SubscribeUserCommand::COMMAND, true):
+                return $this->subscribeCommand($reference, $username);
+            case \in_array($command, UnsubscribeUserCommand::COMMAND, true):
+                return $this->unSubscribeCommand($reference);
             default:
                 return null;
         }
+    }
+
+    private function subscribeCommand(string $reference, string $username): SubscribeUserCommand
+    {
+        return new SubscribeUserCommand(UserId::v4()->value(), $reference, $username);
+    }
+
+    private function unSubscribeCommand(string $reference): UnsubscribeUserCommand
+    {
+        return new UnsubscribeUserCommand($reference);
     }
 }

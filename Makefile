@@ -19,3 +19,27 @@ down: ## down all containers
 
 init: ## initialize environment
 	UID=${UID} GID=${GID} docker-compose -f ${FILE} run php php bin/console skeleton:env:init
+
+.PHONY: install
+install:
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "php bin/composer.phar install"
+
+.PHONY: update
+update:
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "php bin/composer.phar update"
+
+.PHONY: tests
+tests: ## execute project unit tests
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "phpunit --order=random"
+
+.PHONY: stan
+stan: ## pass phpstan
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
+
+.PHONY: cs
+cs: ## run phpcs checker
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "phpcs --standard=phpcs.xml.dist"
+
+.PHONY: ps
+ps: ## status from all containers
+	docker-compose -f ${FILE} ps
