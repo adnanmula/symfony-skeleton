@@ -5,3 +5,11 @@ services:
       - '@repository.dbal.migration.v001'
     tags:
       - { name: console.command, command: 'skeleton:env:init' }
+
+  command.env.fixtures:
+    class: AdnanMula\Skeleton\Entrypoint\Command\LoadFixturesCommand
+    arguments:
+      - '@AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry'
+      - '@repository.dbal.connection'
+    tags:
+      - { name: console.command, command: 'skeleton:env:fixtures' }

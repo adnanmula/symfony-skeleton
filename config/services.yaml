@@ -28,6 +28,20 @@ services:
         autoconfigure: true
         resource: '../src/Infrastructure/Persistence/Repository'
 
+#    AdnanMula\Skeleton\Migrations\:
+#        autowire: true
+#        autoconfigure: true
+#        resource: '../migrations'
+
+    AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry:
+        class: AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry
+
+    AdnanMula\Skeleton\Infrastructure\Fixtures\:
+        autoconfigure: true
+        autowire: true
+        resource: '../src/Infrastructure/Fixtures/*/*'
+        tags: ['skeleton.fixture']
+
 imports:
     - { resource: context/system/buses.yaml }
     - { resource: context/system/repositories.yaml }

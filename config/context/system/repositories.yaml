@@ -9,6 +9,9 @@ services:
   Doctrine\DBAL\Connection:
     alias: repository.dbal.connection
 
+  Doctrine\DBAL\Driver\Connection:
+    alias: repository.dbal.connection
+
   repository.dbal.migration:
     class: AdnanMula\Skeleton\Notifier\Infrastructure\Persistence\Repository\DbalMigration
     arguments:

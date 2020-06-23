@@ -16,6 +16,11 @@ final class FixturesRegistry
         );
     }
 
+    public function addFixture(Fixture $fixture)
+    {
+        $this->registry[\get_class($fixture)] = $fixture;
+    }
+
     public function execute(): void
     {
         \array_walk(
@@ -28,14 +33,9 @@ final class FixturesRegistry
 
     private function load(Fixture $fixture): void
     {
-        $dependants = $fixture->dependants();
-
-        \array_walk(
-            $dependants,
-            function (string $fixture) {
-                $this->load($this->registry[$fixture]);
-            },
-        );
+        foreach ($fixture->dependants() as $dependant) {
+            $this->load($this->registry[$dependant]);
+        }
 
         if (false === $fixture->isLoaded()) {
             $fixture->load();

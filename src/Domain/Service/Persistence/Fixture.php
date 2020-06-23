@@ -6,6 +6,6 @@ interface Fixture
 {
     public function load(): void;
     public function isLoaded(): bool;
-    /** @return array<Fixture> */
+    /** @return array<string> */
     public function dependants(): array;
 }
