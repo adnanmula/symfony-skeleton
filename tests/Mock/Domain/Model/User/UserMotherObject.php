@@ -26,11 +26,28 @@ final class UserMotherObject
 
     public function build(): User
     {
-        return User::create(
-            $this->id,
-            $this->reference,
-            $this->username,
-        );
+        return User::create($this->id, $this->reference, $this->username);
+    }
+
+    public function setId(UserId $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function setReference(UserReference $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function setUsername(UserUsername $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
     public static function buildDefault(): User
@@ -40,23 +57,5 @@ final class UserMotherObject
             UserReference::from(self::MOCK_REF),
             UserUsername::from(self::MOCK_NAME),
         );
-    }
-
-    public function setId(UserId $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    public function setReference(UserReference $reference): self
-    {
-        $this->reference = $reference;
-        return $this;
-    }
-
-    public function setUsername(UserUsername $username): self
-    {
-        $this->username = $username;
-        return $this;
     }
 }

@@ -16,15 +16,6 @@ final class SubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private SubscribeUserCommandHandler $handler;
 
-    protected function setUp(): void
-    {
-        $this->repository = $this->createMock(UserRepository::class);
-
-        $this->handler = new SubscribeUserCommandHandler(
-            new UserCreator($this->repository),
-        );
-    }
-
     /** @test */
     public function given_unsubscribed_user_then_subscribe(): void
     {
@@ -61,6 +52,15 @@ final class SubscribeUserCommandHandlerTest extends TestCase
         $this->repository->expects($this->never())->method('save');
 
         ($this->handler)($this->command($id, $reference, $name));
+    }
+
+    protected function setUp(): void
+    {
+        $this->repository = $this->createMock(UserRepository::class);
+
+        $this->handler = new SubscribeUserCommandHandler(
+            new UserCreator($this->repository),
+        );
     }
 
     private function command(string $id, string $reference, string $username): SubscribeUserCommand

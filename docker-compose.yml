@@ -3,7 +3,7 @@ services:
   php:
     build:
       context: docker/php
-    container_name: ske_php
+    container_name: skeleton_php
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
@@ -12,14 +12,14 @@ services:
       - network_ske
   adminer:
     image: adminer:latest
-    container_name: ske_adminer
+    container_name: skeleton_adminer
     ports:
       - ${ADMINER_PORT}:8080
     networks:
       - network_ske
   postgres:
     image: postgres:11.1-alpine
-    container_name: ske_postgres
+    container_name: skeleton_postgres
     ports:
       - ${POSTGRES_PORT}:5432
     environment:

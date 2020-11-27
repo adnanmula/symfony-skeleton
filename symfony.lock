@@ -5,14 +5,44 @@
     "adnanmula/telegram-send-message": {
         "version": "0.0.2"
     },
+    "amphp/amp": {
+        "version": "v2.5.1"
+    },
+    "amphp/byte-stream": {
+        "version": "v1.8.0"
+    },
+    "amphp/parallel": {
+        "version": "v1.4.0"
+    },
+    "amphp/parallel-functions": {
+        "version": "v0.1.3"
+    },
+    "amphp/parser": {
+        "version": "v1.0.0"
+    },
+    "amphp/process": {
+        "version": "v1.1.0"
+    },
+    "amphp/serialization": {
+        "version": "v1.0.0"
+    },
+    "amphp/sync": {
+        "version": "v1.4.0"
+    },
     "beberlei/assert": {
         "version": "v3.2.7"
     },
     "brick/math": {
         "version": "0.8.15"
     },
+    "dealerdirect/phpcodesniffer-composer-installer": {
+        "version": "v0.7.0"
+    },
     "doctrine/cache": {
         "version": "1.10.1"
+    },
+    "doctrine/collections": {
+        "version": "1.6.7"
     },
     "doctrine/dbal": {
         "version": "2.10.2"
@@ -26,6 +56,9 @@
     "eleirbag89/telegrambotphp": {
         "version": "1.3.10"
     },
+    "gitonomy/gitlib": {
+        "version": "v1.2.2"
+    },
     "guzzlehttp/guzzle": {
         "version": "6.5.4"
     },
@@ -35,8 +68,20 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
+    "monolog/monolog": {
+        "version": "2.1.1"
+    },
     "myclabs/deep-copy": {
         "version": "1.9.5"
+    },
+    "nikic/php-parser": {
+        "version": "v4.10.2"
+    },
+    "ondram/ci-detector": {
+        "version": "3.5.1"
+    },
+    "opis/closure": {
+        "version": "3.6.1"
     },
     "phar-io/manifest": {
         "version": "1.0.3"
@@ -55,6 +100,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.2.0"
+    },
+    "phpro/grumphp": {
+        "version": "v1.2.0"
     },
     "phpspec/prophecy": {
         "version": "v1.10.3"
@@ -121,6 +169,9 @@
     "ramsey/uuid": {
         "version": "4.0.1"
     },
+    "sebastian/cli-parser": {
+        "version": "1.0.1"
+    },
     "sebastian/code-unit": {
         "version": "1.0.3"
     },
@@ -129,6 +180,9 @@
     },
     "sebastian/comparator": {
         "version": "4.0.2"
+    },
+    "sebastian/complexity": {
+        "version": "2.0.2"
     },
     "sebastian/diff": {
         "version": "4.0.1"
@@ -141,6 +195,9 @@
     },
     "sebastian/global-state": {
         "version": "4.0.0"
+    },
+    "sebastian/lines-of-code": {
+        "version": "1.0.2"
     },
     "sebastian/object-enumerator": {
         "version": "4.0.1"
@@ -159,6 +216,9 @@
     },
     "sebastian/version": {
         "version": "3.0.0"
+    },
+    "seld/jsonlint": {
+        "version": "1.8.3"
     },
     "slevomat/coding-standard": {
         "version": "6.3.9"
@@ -254,6 +314,9 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client-contracts": {
+        "version": "v2.3.1"
+    },
     "symfony/http-foundation": {
         "version": "v5.1.0"
     },
@@ -272,6 +335,9 @@
             "config/packages/messenger.yaml"
         ]
     },
+    "symfony/options-resolver": {
+        "version": "v5.1.8"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.17.0"
     },
@@ -289,6 +355,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.17.0"
+    },
+    "symfony/process": {
+        "version": "v5.1.8"
     },
     "symfony/redis-messenger": {
         "version": "v5.1.2"

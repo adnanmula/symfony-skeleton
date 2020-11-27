@@ -16,15 +16,6 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private UnsubscribeUserCommandHandler $handler;
 
-    protected function setUp(): void
-    {
-        $this->repository = $this->createMock(UserRepository::class);
-
-        $this->handler = new UnsubscribeUserCommandHandler(
-            new UserRemover($this->repository),
-        );
-    }
-
     /** @test */
     public function given_subscribed_user_then_unsubscribe(): void
     {
@@ -55,6 +46,15 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
             ->willReturn(null);
 
         ($this->handler)($this->command($reference));
+    }
+
+    protected function setUp(): void
+    {
+        $this->repository = $this->createMock(UserRepository::class);
+
+        $this->handler = new UnsubscribeUserCommandHandler(
+            new UserRemover($this->repository),
+        );
     }
 
     private function command(string $reference): UnsubscribeUserCommand

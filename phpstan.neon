@@ -4,5 +4,7 @@ parameters:
     paths:
         -   src
         -   tests
-    scanFiles:
-        -   vendor/adnanmula/telegram-send-message/src/TelegramClient.php
+    excludes_analyse:
+        -   public/*
+        -   src/Kernel.php
+        -   config/bootstrap.php

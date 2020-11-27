@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "adnanmula/symfony-skeleton",
+    "description": "Symfony skeleton",
     "license": "proprietary",
     "require": {
         "php": "^7.4",
@@ -21,6 +23,7 @@
     },
     "require-dev": {
         "adnanmula/coding-standard": "^0.0.4",
+        "phpro/grumphp": "^1.2",
         "phpstan/phpstan": "^0.12.30",
         "phpunit/phpunit": "^9.0"
     },
@@ -34,13 +37,13 @@
     },
     "autoload": {
         "psr-4": {
-            "AdnanMula\\Skeleton\\": "src/"
+            "AdnanMula\\Skeleton\\": "src/",
+            "AdnanMula\\Skeleton\\Migrations\\": "migrations/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AdnanMula\\Skeleton\\Tests\\": "tests/",
-            "AdnanMula\\Skeleton\\Migrations\\": "migrations/"
+            "AdnanMula\\Skeleton\\Tests\\": "tests/"
         }
     },
     "replace": {
