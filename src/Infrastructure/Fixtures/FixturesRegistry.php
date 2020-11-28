@@ -13,7 +13,7 @@ final class FixturesRegistry
         $this->registry = [];
     }
 
-    public function add(Fixture $fixture)
+    public function add(Fixture $fixture): void
     {
         $this->registry[\get_class($fixture)] = $fixture;
     }

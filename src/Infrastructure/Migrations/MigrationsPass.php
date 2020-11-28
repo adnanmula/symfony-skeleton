@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class MigrationsPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (false === $container->has(MigrationsRegistry::class)) {
             throw new \InvalidArgumentException(MigrationsRegistry::class . ' has to be defined as a service');

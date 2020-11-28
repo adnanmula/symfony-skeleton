@@ -6,6 +6,8 @@ services:
         autowire: false
         autoconfigure: false
         public: false
+        bind:
+            string $token: '%env(TELEGRAM_TOKEN)%'
 
     AdnanMula\Skeleton\Application\:
         autowire: true
@@ -28,24 +30,10 @@ services:
         autoconfigure: true
         resource: '../src/Infrastructure/Persistence/Repository'
 
-    AdnanMula\Skeleton\Migrations\:
-#        autowire: true
-#        autoconfigure: true
-        parent: 'repository.dbal.migration'
-        resource: '../migrations'
-        tags: [ 'skeleton.migration' ]
-
-#    repository.dbal.migration.v001:
-#        class: AdnanMula\Skeleton\Migrations\Postgres\V001
-#        parent: 'repository.dbal.migration'
-#        tags: [ 'skeleton.migration' ]
-
-    #TODO remove this
-    AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry:
-        class: AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry
-
-    AdnanMula\Skeleton\Infrastructure\Migrations\MigrationsRegistry:
-        class: AdnanMula\Skeleton\Infrastructure\Migrations\MigrationsRegistry
+    AdnanMula\Skeleton\Infrastructure\Migrations\:
+        autowire: true
+        autoconfigure: true
+        resource: '../src/Infrastructure/Migrations'
 
     AdnanMula\Skeleton\Infrastructure\Fixtures\:
         autoconfigure: true
@@ -53,21 +41,23 @@ services:
         resource: '../src/Infrastructure/Fixtures/*/*'
         tags: ['skeleton.fixture']
 
-#    AdnanMula\Skeleton\Infrastructure\Migrations\:
-#        autoconfigure: true
+    AdnanMula\Skeleton\Migrations\:
 #        autowire: true
-#        resource: '../src/Infrastructure/Migrations/*/*'
-##        tags: [ 'skeleton.fixture' ]
+#        autoconfigure: true
+        parent: 'repository.dbal.migration'
+        resource: '../migrations'
+        tags: [ 'skeleton.migration' ]
 
-#    AdnanMula\Skeleton\Entrypoint\Command\:
-#        autowire: true
-#        autoconfigure: true
-#        resource: '../src/Entrypoint/Command'
-#        tags:
-#            - {name: console.command}
+    AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry:
+        class: AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry
+
+    AdnanMula\Skeleton\Entrypoint\Command\:
+        autowire: true
+        autoconfigure: true
+        resource: '../src/Entrypoint/Command'
+        tags: [ 'console.command' ]
 
 imports:
     - { resource: context/system/buses.yaml }
     - { resource: context/system/repositories.yaml }
-    - { resource: context/system/commands.yaml }
     - { resource: context/user/repositories.yaml }

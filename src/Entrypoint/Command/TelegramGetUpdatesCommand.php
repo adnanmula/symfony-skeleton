@@ -13,13 +13,15 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class TelegramGetUpdatesCommand extends Command
 {
-    private string $botToken;
+    public const NAME = 'skeleton:telegram:update';
+
+    private string $token;
     private CommunicationClient $communication;
     private MessageBusInterface $bus;
 
-    public function __construct(string $botToken, CommunicationClient $communication, MessageBusInterface $bus)
+    public function __construct(string $token, CommunicationClient $communication, MessageBusInterface $bus)
     {
-        $this->botToken = $botToken;
+        $this->token = $token;
         $this->communication = $communication;
         $this->bus = $bus;
 
@@ -28,12 +30,13 @@ final class TelegramGetUpdatesCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Process telegram messages');
+        $this->setName(self::NAME)
+            ->setDescription('Process telegram messages');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $client = new \Telegram($this->botToken);
+        $client = new \Telegram($this->token);
 
         $client->getUpdates();
 

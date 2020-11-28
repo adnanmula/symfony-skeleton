@@ -10,6 +10,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class LoadFixturesCommand extends Command
 {
+    public const NAME = 'skeleton:env:fixtures';
+
     private FixturesRegistry $registry;
     private Connection $connection;
 
@@ -23,7 +25,8 @@ final class LoadFixturesCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Load fixtures');
+        $this->setName(self::NAME)
+            ->setDescription('Load fixtures');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

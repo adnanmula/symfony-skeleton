@@ -9,6 +9,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class LoadMigrationsCommand extends Command
 {
+    public const NAME = 'skeleton:env:migrations';
+
     private MigrationsRegistry $registry;
 
     public function __construct(MigrationsRegistry $registry)
@@ -20,7 +22,8 @@ final class LoadMigrationsCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Initialize environment');
+        $this->setName(self::NAME)
+            ->setDescription('Initialize environment');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

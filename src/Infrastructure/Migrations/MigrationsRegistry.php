@@ -13,7 +13,7 @@ final class MigrationsRegistry
         $this->registry = [];
     }
 
-    public function add(Migration $migration)
+    public function add(Migration $migration): void
     {
         $this->registry[\get_class($migration)] = $migration;
     }

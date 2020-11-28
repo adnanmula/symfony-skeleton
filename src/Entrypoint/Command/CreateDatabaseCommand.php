@@ -10,7 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class CreateDatabaseCommand extends Command
 {
-    protected Connection $connection;
+    public const NAME = 'skeleton:env:database';
+
+    private Connection $connection;
 
     public function __construct(Connection $connection)
     {
@@ -21,12 +23,13 @@ final class CreateDatabaseCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Initialize database');
+        $this->setName(self::NAME)
+            ->setDescription('Initialize database');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-//      TODO inyect tmp connection and remove getParams
+//      TODO inject tmp connection and remove getParams
 
         $tmpParams = $this->connection->getParams();
 
