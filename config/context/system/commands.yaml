@@ -1,10 +1,17 @@
 services:
-  command.env.init:
-    class: AdnanMula\Skeleton\Entrypoint\Command\InitEnvironmentCommand
+  command.env.database:
+    class: AdnanMula\Skeleton\Entrypoint\Command\CreateDatabaseCommand
     arguments:
-      - '@repository.dbal.migration.v001'
+      - '@repository.dbal.connection'
     tags:
-      - { name: console.command, command: 'skeleton:env:init' }
+      - { name: console.command, command: 'skeleton:env:database' }
+
+  command.env.migrations:
+    class: AdnanMula\Skeleton\Entrypoint\Command\LoadMigrationsCommand
+    arguments:
+      - '@AdnanMula\Skeleton\Infrastructure\Migrations\MigrationsRegistry'
+    tags:
+      - { name: console.command, command: 'skeleton:env:migrations' }
 
   command.env.fixtures:
     class: AdnanMula\Skeleton\Entrypoint\Command\LoadFixturesCommand

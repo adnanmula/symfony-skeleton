@@ -3,6 +3,7 @@
 namespace AdnanMula\Skeleton;
 
 use AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesPass;
+use AdnanMula\Skeleton\Infrastructure\Migrations\MigrationsPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -15,6 +16,7 @@ class Kernel extends BaseKernel
 
     protected function build(ContainerBuilder $container)
     {
+        $container->addCompilerPass(new MigrationsPass());
         $container->addCompilerPass(new FixturesPass());
     }
 

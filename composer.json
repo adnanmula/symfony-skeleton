@@ -1,7 +1,7 @@
 {
-    "type": "project",
     "name": "adnanmula/symfony-skeleton",
     "description": "Symfony skeleton",
+    "type": "project",
     "license": "proprietary",
     "require": {
         "php": "^7.4",

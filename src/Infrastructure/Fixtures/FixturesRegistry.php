@@ -8,15 +8,12 @@ final class FixturesRegistry
 {
     private array $registry;
 
-    public function __construct(Fixture ...$fixtures)
+    public function __construct()
     {
-        \array_walk(
-            $fixtures,
-            fn (Fixture $fixture) => $this->registry[\get_class($fixture)] = $fixture,
-        );
+        $this->registry = [];
     }
 
-    public function addFixture(Fixture $fixture)
+    public function add(Fixture $fixture)
     {
         $this->registry[\get_class($fixture)] = $fixture;
     }

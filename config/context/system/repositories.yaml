@@ -21,7 +21,3 @@ services:
     class: AdnanMula\Skeleton\Notifier\Infrastructure\Persistence\Repository\DbalRepository
     arguments:
       - '@repository.dbal.connection'
-
-  repository.dbal.migration.v001:
-    class: AdnanMula\Skeleton\Migrations\Postgres\V001
-    parent: 'repository.dbal.migration'

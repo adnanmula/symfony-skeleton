@@ -1,21 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace AdnanMula\Skeleton\Infrastructure\Fixtures;
+namespace AdnanMula\Skeleton\Infrastructure\Migrations;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-final class FixturesPass implements CompilerPassInterface
+final class MigrationsPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (false === $container->has(FixturesRegistry::class)) {
-            throw new \InvalidArgumentException(FixturesRegistry::class . ' has to be defined as a service');
+        if (false === $container->has(MigrationsRegistry::class)) {
+            throw new \InvalidArgumentException(MigrationsRegistry::class . ' has to be defined as a service');
         }
 
-        $definition = $container->findDefinition(FixturesRegistry::class);
-        $taggedServices = $container->findTaggedServiceIds('skeleton.fixture');
+        $definition = $container->findDefinition(MigrationsRegistry::class);
+        $taggedServices = $container->findTaggedServiceIds('skeleton.migration');
 
         foreach (\array_keys($taggedServices) as $serviceId) {
             $definition->addMethodCall('add', [new Reference($serviceId)]);
