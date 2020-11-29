@@ -1,65 +1,63 @@
 parameters:
-    db_url: '%env(resolve:DATABASE_URL)%'
-    db_url_default: '%env(resolve:DATABASE_URL_DEFAULT)%'
+  db_url: '%env(resolve:DATABASE_URL)%'
+  db_url_default: '%env(resolve:DATABASE_URL_DEFAULT)%'
 
 services:
-    _defaults:
-        autowire: false
-        autoconfigure: false
-        public: false
-        bind:
-            string $token: '%env(TELEGRAM_TOKEN)%'
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+    bind:
+      string $token: '%env(TELEGRAM_TOKEN)%'
 
-    AdnanMula\Skeleton\Application\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Application/*/*/*Handler.php'
-        tags: [{ name: messenger.message_handler, bus: messenger.bus.command }]
+  AdnanMula\Skeleton\Application\:
+    autowire: true
+    autoconfigure: true
+    resource: '../src/Application/*/*/*Handler.php'
+    tags: [{ name: messenger.message_handler, bus: messenger.bus.command }]
 
-    AdnanMula\Skeleton\Domain\Service\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Domain/Service'
+  AdnanMula\Skeleton\Domain\Service\:
+    autowire: true
+    autoconfigure: true
+    resource: '../src/Domain/Service'
 
-    AdnanMula\Skeleton\Infrastructure\Service\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Infrastructure/Service'
+  AdnanMula\Skeleton\Infrastructure\Service\:
+    autowire: true
+    autoconfigure: true
+    resource: '../src/Infrastructure/Service'
 
-    AdnanMula\Skeleton\Infrastructure\Persistence\Repository\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Infrastructure/Persistence/Repository'
+  AdnanMula\Skeleton\Infrastructure\Persistence\Repository\:
+      autowire: true
+      autoconfigure: true
+      resource: '../src/Infrastructure/Persistence/Repository'
 
-    AdnanMula\Skeleton\Infrastructure\Migrations\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Infrastructure/Migrations'
+  AdnanMula\Skeleton\Infrastructure\Migrations\:
+      autowire: true
+      autoconfigure: true
+      resource: '../src/Infrastructure/Migrations'
 
-    AdnanMula\Skeleton\Infrastructure\Fixtures\:
-        autoconfigure: true
-        autowire: true
-        resource: '../src/Infrastructure/Fixtures/*/*'
-        tags: ['skeleton.fixture']
+  AdnanMula\Skeleton\Infrastructure\Fixtures\:
+      autoconfigure: true
+      autowire: true
+      resource: '../src/Infrastructure/Fixtures/*/*'
+      tags: ['skeleton.fixture']
 
-    AdnanMula\Skeleton\Migrations\:
-#        autowire: true
-#        autoconfigure: true
-        parent: 'repository.dbal.migration'
-        resource: '../migrations'
-        tags: [ 'skeleton.migration' ]
+  AdnanMula\Skeleton\Migrations\:
+    parent: 'repository.dbal.migration'
+    resource: '../migrations'
+    tags: [ 'skeleton.migration' ]
 
-    AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry:
-        class: AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry
+  AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry:
+    class: AdnanMula\Skeleton\Infrastructure\Fixtures\FixturesRegistry
 
-    AdnanMula\Skeleton\Entrypoint\Command\:
-        autowire: true
-        autoconfigure: true
-        resource: '../src/Entrypoint/Command'
-        bind:
-            Doctrine\DBAL\Connection $defaultConnection: '@repository.dbal.connection_default'
-            Doctrine\DBAL\Connection $connection: '@repository.dbal.connection'
-        tags: [ 'console.command' ]
+  AdnanMula\Skeleton\Entrypoint\Command\:
+    autowire: true
+    autoconfigure: true
+    resource: '../src/Entrypoint/Command'
+    bind:
+      Doctrine\DBAL\Connection $defaultConnection: '@repository.dbal.connection_default'
+      Doctrine\DBAL\Connection $connection: '@repository.dbal.connection'
+    tags: [ 'console.command' ]
 
 imports:
     - { resource: context/system/buses.yaml }

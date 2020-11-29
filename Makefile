@@ -48,6 +48,9 @@ fixtures: ## run grumphp
 tests: ## execute project unit tests
 	docker-compose -f ${FILE} exec --user=${UID} php sh -c "phpunit --order=random"
 
+behat:
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "behat --colors"
+
 stan: ## check phpstan
 	docker-compose -f ${FILE} exec --user=${UID} php sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
 

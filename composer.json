@@ -23,6 +23,10 @@
     },
     "require-dev": {
         "adnanmula/coding-standard": "^0.0.4",
+        "behat/behat": "^3.8",
+        "behatch/contexts": "^3.3",
+        "friends-of-behat/mink-browserkit-driver": "^1.4",
+        "friends-of-behat/symfony-extension": "^2.1",
         "phpro/grumphp": "^1.2",
         "phpstan/phpstan": "^0.12.30",
         "phpunit/phpunit": "^9.0"
