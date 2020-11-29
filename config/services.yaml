@@ -1,5 +1,6 @@
 parameters:
     db_url: '%env(resolve:DATABASE_URL)%'
+    db_url_default: '%env(resolve:DATABASE_URL_DEFAULT)%'
 
 services:
     _defaults:
@@ -55,6 +56,9 @@ services:
         autowire: true
         autoconfigure: true
         resource: '../src/Entrypoint/Command'
+        bind:
+            Doctrine\DBAL\Connection $defaultConnection: '@repository.dbal.connection_default'
+            Doctrine\DBAL\Connection $connection: '@repository.dbal.connection'
         tags: [ 'console.command' ]
 
 imports:

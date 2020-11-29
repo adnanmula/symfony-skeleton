@@ -9,24 +9,24 @@ services:
       - .:/var/www/html
       - ~/.composer:/.composer
     networks:
-      - network_ske
+      - network_skeleton
   adminer:
     image: adminer:latest
     container_name: skeleton_adminer
     ports:
       - ${ADMINER_PORT}:8080
     networks:
-      - network_ske
+      - network_skeleton
   postgres:
     image: postgres:11.1-alpine
     container_name: skeleton_postgres
     ports:
-      - ${POSTGRES_PORT}:5432
+      - ${DATABASE_PORT}:5432
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     networks:
-      - network_ske
+      - network_skeleton
 
 networks:
-  network_ske:
+  network_skeleton:
     driver: bridge

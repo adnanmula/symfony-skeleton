@@ -33,8 +33,13 @@ final class InitEnvironmentCommand extends Command
         $app->setAutoExit(false);
 
         $app->run(new ArrayInput(['command' => 'skeleton:env:database']));
+        $output->writeln('Database created.');
+
         $app->run(new ArrayInput(['command' => 'skeleton:env:migrations']));
+        $output->writeln('Migrations executed.');
+
         $app->run(new ArrayInput(['command' => 'skeleton:env:fixtures']));
+        $output->writeln('Loaded fixtures.');
 
         return Command::SUCCESS;
     }

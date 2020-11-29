@@ -3,7 +3,6 @@
 namespace AdnanMula\Skeleton\Entrypoint\Command;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\DriverManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,10 +11,12 @@ final class CreateDatabaseCommand extends Command
 {
     public const NAME = 'skeleton:env:database';
 
+    private Connection $defaultConnection;
     private Connection $connection;
 
-    public function __construct(Connection $connection)
+    public function __construct(Connection $defaultConnection, Connection $connection)
     {
+        $this->defaultConnection = $defaultConnection;
         $this->connection = $connection;
 
         parent::__construct(null);
@@ -29,15 +30,9 @@ final class CreateDatabaseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-//      TODO inject tmp connection and remove getParams
-
-        $tmpParams = $this->connection->getParams();
-
-        unset($tmpParams['url']);
-        unset($tmpParams['dbname']);
-
-        $tmpConnection = DriverManager::getConnection($tmpParams);
-        $tmpConnection->getSchemaManager()->dropAndCreateDatabase($this->connection->getParams()['dbname']);
+        $this->defaultConnection->getSchemaManager()->dropAndCreateDatabase(
+            $this->connection->getDatabase(),
+        );
 
         return Command::SUCCESS;
     }

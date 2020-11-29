@@ -6,6 +6,13 @@ services:
       - url: '%db_url%'
         driver: 'pdo_pgsql'
 
+  repository.dbal.connection_default:
+    class: Doctrine\DBAL\Connection
+    factory: 'Doctrine\DBAL\DriverManager::getConnection'
+    arguments:
+      - url: '%db_url_default%'
+        driver: 'pdo_pgsql'
+
   Doctrine\DBAL\Connection:
     alias: repository.dbal.connection
 
