@@ -95,6 +95,9 @@
             "tests/Behat/DemoContext.php"
         ]
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.5"
+    },
     "gitonomy/gitlib": {
         "version": "v1.2.2"
     },

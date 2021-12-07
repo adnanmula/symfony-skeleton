@@ -19,4 +19,4 @@ grumphp:
       format: ~
       stop_on_failure: false
     phpversion:
-      project: '7.4'
+      project: '8.1'
