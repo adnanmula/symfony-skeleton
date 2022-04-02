@@ -4,7 +4,7 @@ parameters:
     paths:
         -   src
         -   tests
-    excludes_analyse:
+    excludePaths:
         -   public/*
         -   src/Kernel.php
         -   config/bootstrap.php

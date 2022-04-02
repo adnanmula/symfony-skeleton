@@ -8,7 +8,7 @@ final class V001 extends DbalMigration
 {
     public function up(): void
     {
-        $this->connection->exec(
+        $this->connection->executeStatement(
             'CREATE TABLE users (
                     id uuid NOT NULL,
                     reference character varying(16) NOT NULL
@@ -21,6 +21,6 @@ final class V001 extends DbalMigration
 
     public function down(): void
     {
-        $this->connection->exec('DROP TABLE IF EXISTS "users"');
+        $this->connection->executeStatement('DROP TABLE IF EXISTS "users"');
     }
 }
