@@ -11,14 +11,14 @@ default:
 #        - behatch:context:rest
 #        - behatch:context:json
 #        - behatch:context:system
-#  extensions:
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      bootstrap: config/bootstrap.php
+      kernel:
+        class: AdnanMula\Skeleton\Kernel
+        environment: test
 #    Behat\MinkExtension:
 #      sessions:
 #        symfony:
 #          symfony: ~
-#    FriendsOfBehat\SymfonyExtension:
-#      bootstrap: config/bootstrap.php
-#      kernel:
-#        class: AdnanMula\Skeleton\Kernel
-#        environment: test
 #    Behatch\Extension: ~

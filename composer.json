@@ -25,6 +25,7 @@
     "require-dev": {
         "adnanmula/coding-standard": "^0.0.5",
         "behat/behat": "^3.10",
+        "friends-of-behat/symfony-extension": "^2.0",
         "phpro/grumphp": "^1.10",
         "phpstan/phpstan": "^1.5",
         "phpunit/phpunit": "^9.5"
