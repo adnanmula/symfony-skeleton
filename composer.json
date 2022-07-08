@@ -14,6 +14,7 @@
         "eleirbag89/telegrambotphp": "^1.3",
         "guzzlehttp/guzzle": "^6.5.8",
         "ramsey/uuid": "^4.0",
+        "robmorgan/phinx": "^0.12.11",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
         "symfony/flex": "^1.3.1",
@@ -35,7 +36,12 @@
         },
         "sort-packages": true,
         "bin-dir": "bin",
-        "platform-check": false
+        "platform-check": false,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp": true,
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "psr-4": {

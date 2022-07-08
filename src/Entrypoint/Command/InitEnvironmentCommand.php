@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class InitEnvironmentCommand extends Command
 {
-    public const NAME = 'skeleton:env:init';
+    public const NAME = 'environment:init';
 
     public function __construct()
     {
@@ -32,13 +32,13 @@ final class InitEnvironmentCommand extends Command
 
         $app->setAutoExit(false);
 
-        $app->run(new ArrayInput(['command' => 'skeleton:env:database']));
+        $app->run(new ArrayInput(['command' => 'environment:database']));
         $output->writeln('Database created.');
 
-        $app->run(new ArrayInput(['command' => 'skeleton:env:migrations']));
+        $app->run(new ArrayInput(['command' => 'environment:migrations']));
         $output->writeln('Migrations executed.');
 
-        $app->run(new ArrayInput(['command' => 'skeleton:env:fixtures']));
+        $app->run(new ArrayInput(['command' => 'environment:fixtures']));
         $output->writeln('Loaded fixtures.');
 
         return Command::SUCCESS;

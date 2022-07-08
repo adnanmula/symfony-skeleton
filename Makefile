@@ -30,18 +30,18 @@ update: ## update dependencies
 
 # Environment
 init: ## initialize environment
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console skeleton:env:init"
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:init"
 
 .PHONY: migrations
 migrations: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console skeleton:env:migrations"
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:migrations"
 
 createdb: ## run grumphp
 	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console skeleton:env:database"
 
 .PHONY: fixtures
 fixtures: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console skeleton:env:fixtures"
+	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:fixtures"
 
 # Tools
 .PHONY: tests

@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class CreateDatabaseCommand extends Command
 {
-    public const NAME = 'skeleton:env:database';
+    public const NAME = 'environment:database';
 
     private Connection $defaultConnection;
     private Connection $connection;

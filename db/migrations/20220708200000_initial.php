@@ -1,14 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace AdnanMula\Skeleton\Migrations\Postgres;
+use Phinx\Migration\AbstractMigration;
 
-use AdnanMula\Skeleton\Infrastructure\Persistence\Repository\DbalMigration;
-
-final class V001 extends DbalMigration
+final class Initial extends AbstractMigration
 {
     public function up(): void
     {
-        $this->connection->executeStatement(
+        $this->execute(
             'CREATE TABLE users (
                     id uuid NOT NULL,
                     reference character varying(16) NOT NULL
@@ -21,6 +19,6 @@ final class V001 extends DbalMigration
 
     public function down(): void
     {
-        $this->connection->executeStatement('DROP TABLE IF EXISTS "users"');
+        $this->execute('DROP TABLE IF EXISTS "users"');
     }
 }

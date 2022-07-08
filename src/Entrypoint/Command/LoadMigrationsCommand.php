@@ -2,34 +2,30 @@
 
 namespace AdnanMula\Skeleton\Entrypoint\Command;
 
-use AdnanMula\Skeleton\Infrastructure\Migrations\MigrationsRegistry;
+use Phinx\Console\PhinxApplication;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 final class LoadMigrationsCommand extends Command
 {
-    public const NAME = 'skeleton:env:migrations';
-
-    private MigrationsRegistry $registry;
-
-    public function __construct(MigrationsRegistry $registry)
-    {
-        $this->registry = $registry;
-
-        parent::__construct(null);
-    }
+    public const NAME = 'environment:migrations';
 
     protected function configure(): void
     {
-        $this->setName(self::NAME)
-            ->setDescription('Initialize environment');
+        $this->setName(self::NAME)->setDescription('Execute migrations');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->registry->execute();
+        $phinx = new PhinxApplication();
+        $command = $phinx->find('migrate');
 
-        return Command::SUCCESS;
+        $arguments = [
+            'command' => 'migrate',
+        ];
+
+        return $command->run(new ArrayInput($arguments), $output);
     }
 }

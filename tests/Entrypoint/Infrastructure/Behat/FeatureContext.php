@@ -29,7 +29,7 @@ final class FeatureContext implements Context
         $this->bootstrapEnvironment();
         $application = $this->getApplication();
 
-        $arg = new ArrayInput(['command' => 'skeleton:env:fixtures']);
+        $arg = new ArrayInput(['command' => 'environment:fixtures']);
 
         $application->run($arg, new NullOutput());
     }
@@ -40,14 +40,14 @@ final class FeatureContext implements Context
 
         $application->run(new ArrayInput(
             [
-                'command' => 'skeleton:env:database',
+                'command' => 'environment:database',
                 '--no-interaction' => true,
             ],
         ), new NullOutput());
 
         $application->run(new ArrayInput(
             [
-                'command' => 'skeleton:env:migrations',
+                'command' => 'environment:migrations',
                 '--no-interaction' => true,
             ],
         ), new NullOutput());
