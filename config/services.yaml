@@ -21,6 +21,12 @@ services:
     autoconfigure: true
     resource: '../src/Domain/Service'
 
+  AdnanMula\Skeleton\Entrypoint\Controller\:
+    autowire: true
+    autoconfigure: true
+    resource: '../src/Entrypoint/Controller'
+    tags: ['controller.service_arguments']
+
   AdnanMula\Skeleton\Infrastructure\Service\:
     autowire: true
     autoconfigure: true

@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-  php:
+  php-fpm:
     build:
       context: docker/php
     container_name: skeleton_php
@@ -8,6 +8,19 @@ services:
     volumes:
       - .:/var/www/html
       - ~/.composer:/.composer
+    networks:
+      - network_skeleton
+  nginx:
+    container_name: skeleton_nginx
+    build:
+      dockerfile: docker/nginx/Dockerfile
+      context: .
+      target: basic
+    working_dir: /var/www/html
+    volumes:
+      - ./public:/var/www/html
+    ports:
+      - ${API_PORT}:80
     networks:
       - network_skeleton
   adminer:

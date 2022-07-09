@@ -16,46 +16,46 @@ down: ## down all containers
 	UID=${UID} GID=${GID} docker-compose -f ${FILE} down
 
 bash: ## gets inside a php container
-	UID=${UID} GID={GID} docker-compose -f ${FILE} exec --user=${UID} php sh
+	UID=${UID} GID={GID} docker-compose -f ${FILE} exec --user=${UID} php-fpm sh
 
 ps: ## status from all containers
 	docker-compose -f ${FILE} ps
 
 # Dependencies
 install: ## install dependencies
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "composer install"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "composer install"
 
 update: ## update dependencies
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "composer update"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "composer update"
 
 # Environment
 init: ## initialize environment
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:init"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:init"
 
 .PHONY: migrations
 migrations: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:migrations"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:migrations"
 
 createdb: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console skeleton:env:database"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console skeleton:env:database"
 
 .PHONY: fixtures
 fixtures: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "console environment:fixtures"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:fixtures"
 
 # Tools
 .PHONY: tests
 tests: ## execute project unit tests
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "phpunit --order=random"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "phpunit --order=random"
 
 behat:
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "behat --colors"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "behat --colors"
 
 stan: ## check phpstan
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
 
 cs: ## check code style
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "phpcs --standard=phpcs.xml.dist"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "phpcs --standard=phpcs.xml.dist"
 
 grump: ## run grumphp
-	docker-compose -f ${FILE} exec --user=${UID} php sh -c "grumphp run"
+	docker-compose -f ${FILE} exec --user=${UID} php-fpm sh -c "grumphp run"
