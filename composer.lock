@@ -176,16 +176,16 @@
         },
         {
             "name": "cakephp/core",
-            "version": "4.4.2",
+            "version": "4.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "884555efcf573ea23597f9c88a12ed6d58af00f3"
+                "reference": "20e50de2f461b5983a1a1296fe5c3762857b9edd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/884555efcf573ea23597f9c88a12ed6d58af00f3",
-                "reference": "884555efcf573ea23597f9c88a12ed6d58af00f3",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/20e50de2f461b5983a1a1296fe5c3762857b9edd",
+                "reference": "20e50de2f461b5983a1a1296fe5c3762857b9edd",
                 "shasum": ""
             },
             "require": {
@@ -229,20 +229,20 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/core"
             },
-            "time": "2022-05-31T20:57:08+00:00"
+            "time": "2022-10-07T16:40:13+00:00"
         },
         {
             "name": "cakephp/database",
-            "version": "4.4.2",
+            "version": "4.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/database.git",
-                "reference": "61b147195a5899a9b51989af9150a13b647e9190"
+                "reference": "c12a8f30f802968a885774e2ac3c099f470bf07c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/database/zipball/61b147195a5899a9b51989af9150a13b647e9190",
-                "reference": "61b147195a5899a9b51989af9150a13b647e9190",
+                "url": "https://api.github.com/repos/cakephp/database/zipball/c12a8f30f802968a885774e2ac3c099f470bf07c",
+                "reference": "c12a8f30f802968a885774e2ac3c099f470bf07c",
                 "shasum": ""
             },
             "require": {
@@ -251,7 +251,8 @@
                 "php": ">=7.4.0"
             },
             "suggest": {
-                "cakephp/i18n": "If you are using locale-aware datetime formats or Chronos types."
+                "cakephp/i18n": "If you are using locale-aware datetime formats or Chronos types.",
+                "cakephp/log": "If you want to use query logging without providing a logger yourself."
             },
             "type": "library",
             "autoload": {
@@ -284,20 +285,20 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/database"
             },
-            "time": "2022-06-20T14:25:54+00:00"
+            "time": "2023-01-03T20:29:38+00:00"
         },
         {
             "name": "cakephp/datasource",
-            "version": "4.4.2",
+            "version": "4.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/datasource.git",
-                "reference": "41b4243d226fc802e1075247c81c8bc48fad4343"
+                "reference": "cb58adb0e6f52f26fa61d03776b07c157e328c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/datasource/zipball/41b4243d226fc802e1075247c81c8bc48fad4343",
-                "reference": "41b4243d226fc802e1075247c81c8bc48fad4343",
+                "url": "https://api.github.com/repos/cakephp/datasource/zipball/cb58adb0e6f52f26fa61d03776b07c157e328c1e",
+                "reference": "cb58adb0e6f52f26fa61d03776b07c157e328c1e",
                 "shasum": ""
             },
             "require": {
@@ -342,20 +343,20 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/datasource"
             },
-            "time": "2022-06-27T10:55:08+00:00"
+            "time": "2022-11-26T11:46:41+00:00"
         },
         {
             "name": "cakephp/utility",
-            "version": "4.4.2",
+            "version": "4.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
-                "reference": "564cf3bea3bb31e0cb53fa199c39f17105af01ec"
+                "reference": "aa7bba6c39b56751f5c917464f113c924d4ba10f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/utility/zipball/564cf3bea3bb31e0cb53fa199c39f17105af01ec",
-                "reference": "564cf3bea3bb31e0cb53fa199c39f17105af01ec",
+                "url": "https://api.github.com/repos/cakephp/utility/zipball/aa7bba6c39b56751f5c917464f113c924d4ba10f",
+                "reference": "aa7bba6c39b56751f5c917464f113c924d4ba10f",
                 "shasum": ""
             },
             "require": {
@@ -401,7 +402,7 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/utility"
             },
-            "time": "2022-07-05T07:59:19+00:00"
+            "time": "2022-11-06T06:40:44+00:00"
         },
         {
             "name": "doctrine/cache",
