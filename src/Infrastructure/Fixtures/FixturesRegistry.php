@@ -15,7 +15,7 @@ final class FixturesRegistry
 
     public function add(Fixture $fixture): void
     {
-        $this->registry[\get_class($fixture)] = $fixture;
+        $this->registry[$fixture::class] = $fixture;
     }
 
     public function execute(): void
