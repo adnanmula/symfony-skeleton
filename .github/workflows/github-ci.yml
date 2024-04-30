@@ -11,24 +11,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: composer install --ignore-platform-reqs --prefer-dist --no-progress --no-suggest
+      - name: Copy env
+        run: cp .env.dist .env
 
-    - name: Build environment
-      run: |
-        make build
-        make up
+      - name: Build environment
+        run: make build
 
-    - name: Code sniffer
-      run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "phpcs --standard=phpcs.xml.dist"
+      - name: Up environment
+        run: make up
 
-    - name: Unit tests
-      run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "php ./bin/phpunit --configuration phpunit.xml.dist --no-coverage --colors=always"
+      - name: Install dependencies
+        run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "composer install --ignore-platform-reqs --prefer-dist --no-progress --no-suggest"
 
-    - name: Php stan
-      run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
+      - name: Code sniffer
+        run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "phpcs --standard=phpcs.xml.dist"
 
-    - name: Symfony container checker
-      run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "console"
+      - name: Unit tests
+        run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "php ./bin/phpunit --configuration phpunit.xml.dist --no-coverage --colors=always"
+
+      - name: Php stan
+        run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "php -d memory_limit=256M bin/phpstan analyse -c phpstan.neon"
+
+      - name: Symfony container checker
+        run: docker-compose -f ./docker-compose.yml exec -T --user=$(id -u) php-fpm sh -c "console"
