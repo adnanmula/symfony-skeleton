@@ -8,7 +8,7 @@ use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserUsername;
 
 final class User
 {
-    private const MODEL_NAME = 'user';
+    private const string MODEL_NAME = 'user';
 
     private UserId $id;
     private UserReference $reference;

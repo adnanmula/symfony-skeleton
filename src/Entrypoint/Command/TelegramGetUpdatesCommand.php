@@ -2,6 +2,7 @@
 
 namespace AdnanMula\Skeleton\Entrypoint\Command;
 
+use AdnanMula\Skeleton\Application\Shared\Command as ApplicationCommand;
 use AdnanMula\Skeleton\Application\User\Subscribe\SubscribeUserCommand;
 use AdnanMula\Skeleton\Application\User\Unsubscribe\UnsubscribeUserCommand;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserId;
@@ -13,7 +14,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class TelegramGetUpdatesCommand extends Command
 {
-    public const NAME = 'skeleton:telegram:update';
+    public const string NAME = 'skeleton:telegram:update';
 
     private string $token;
     private CommunicationClient $communication;
@@ -58,7 +59,7 @@ final class TelegramGetUpdatesCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function getCommand(string $reference, string $text, string $username)
+    private function getCommand(string $reference, string $text, string $username): ?ApplicationCommand
     {
         $arguments = \explode(' ', $text);
         $command = \array_shift($arguments);

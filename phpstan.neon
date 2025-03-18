@@ -1,6 +1,5 @@
 parameters:
-    level: 5
-    checkMissingIterableValueType: false
+    level: 6
     paths:
         -   src
         -   tests
@@ -8,3 +7,9 @@ parameters:
         -   public/*
         -   src/Kernel.php
         -   config/bootstrap.php
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        -
+            identifier: missingType.parameter
+            paths:
+                - src/Application/*/*/*Command.php

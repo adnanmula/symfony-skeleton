@@ -2,14 +2,15 @@
 
 namespace AdnanMula\Skeleton\Application\User\Subscribe;
 
+use AdnanMula\Skeleton\Application\Shared\Command;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserId;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserReference;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserUsername;
 use Assert\Assert;
 
-final class SubscribeUserCommand
+final class SubscribeUserCommand implements Command
 {
-    public const COMMAND = ['/subscribe', '/sub'];
+    public const array COMMAND = ['/subscribe', '/sub'];
 
     private UserId $id;
     private UserReference $reference;

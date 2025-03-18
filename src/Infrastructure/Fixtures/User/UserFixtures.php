@@ -11,10 +11,10 @@ use AdnanMula\Skeleton\Infrastructure\Fixtures\DbalFixture;
 
 final class UserFixtures extends DbalFixture implements Fixture
 {
-    public const FIXTURE_USER_1_ID = '426117e9-e016-4f53-be1f-4eb8711ce625';
-    public const FIXTURE_USER_2_ID = '97a7e9fe-ff27-4d52-83c0-df4bc9309fb0';
+    public const string FIXTURE_USER_1_ID = '426117e9-e016-4f53-be1f-4eb8711ce625';
+    public const string FIXTURE_USER_2_ID = '97a7e9fe-ff27-4d52-83c0-df4bc9309fb0';
 
-    private const TABLE_USER = 'users';
+    private const string TABLE_USER = 'users';
 
     private bool $loaded = false;
 

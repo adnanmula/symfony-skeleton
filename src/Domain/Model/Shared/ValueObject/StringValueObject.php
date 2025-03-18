@@ -26,7 +26,7 @@ class StringValueObject
         return $this->value;
     }
 
-    public static function from(string $value)
+    public static function from(string $value): static
     {
         return new static($value);
     }

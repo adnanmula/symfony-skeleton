@@ -19,8 +19,8 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
             ->createQueryBuilder()
             ->select('a.id, a.reference, a.username')
             ->from(self::TABLE_USER, 'a')
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         return \array_map(fn (array $row) => $this->map($row), $result);
     }
@@ -34,8 +34,8 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
             ->where('a.reference = :reference')
             ->setParameter('id', $id->value())
             ->setMaxResults(1)
-            ->execute()
-            ->fetch();
+            ->executeQuery()
+            ->fetchOne();
 
         if (false === $result) {
             return null;
@@ -53,8 +53,8 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
             ->where('a.reference = :reference')
             ->setParameter('reference', $reference->value())
             ->setMaxResults(1)
-            ->execute()
-            ->fetch();
+            ->executeQuery()
+            ->fetchOne();
 
         if (false === $result) {
             return null;
@@ -80,7 +80,7 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
         $stmt->bindValue(':reference', $user->reference()->value());
         $stmt->bindValue(':username', $user->username()->value());
 
-        $stmt->execute();
+        $stmt->executeStatement();
     }
 
     public function remove(User $user): void
@@ -92,10 +92,10 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
 
         $stmt->bindValue(':reference', $user->reference()->value());
 
-        $stmt->execute();
+        $stmt->executeStatement();
     }
 
-    private function map($user): User
+    private function map(array $user): User
     {
         return User::create(
             UserId::from($user['id']),

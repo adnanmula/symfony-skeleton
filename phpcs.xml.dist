@@ -1,17 +1,19 @@
 <?xml version="1.0" ?>
+
 <ruleset name="Project rules">
-    <file>src</file>
-    <exclude-pattern>src/Kernel.php</exclude-pattern>
-    <exclude-pattern>tests/bootstrap.php</exclude-pattern>
-    <exclude-pattern>public/*</exclude-pattern>
-    <exclude-pattern>config/bootstrap.php</exclude-pattern>
-    <exclude-pattern>config/bundles.php</exclude-pattern>
-    <exclude-pattern>db</exclude-pattern>
-    <exclude-pattern>phinx.php</exclude-pattern>
+  <file>src</file>
+  <exclude-pattern>src/Kernel.php</exclude-pattern>
+  <exclude-pattern>db</exclude-pattern>
+  <exclude-pattern>/config/bundles.php</exclude-pattern>
+  <exclude-pattern>/bootstrap.php</exclude-pattern>
+  <exclude-pattern>/public/index.php</exclude-pattern>
+  <exclude-pattern>/phinx.php</exclude-pattern>
 
-    <rule ref="vendor/adnanmula/coding-standard/src/ruleset.xml" />
+  <rule ref="vendor/adnanmula/coding-standard/src/ruleset.xml">
+      <exclude name="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat" />
+  </rule>
 
-    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
-        <exclude-pattern>tests/*</exclude-pattern>
-    </rule>
+  <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+      <exclude-pattern>tests/*</exclude-pattern>
+  </rule>
 </ruleset>

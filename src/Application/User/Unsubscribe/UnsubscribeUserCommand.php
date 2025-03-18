@@ -2,12 +2,13 @@
 
 namespace AdnanMula\Skeleton\Application\User\Unsubscribe;
 
+use AdnanMula\Skeleton\Application\Shared\Command;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserReference;
 use Assert\Assert;
 
-final class UnsubscribeUserCommand
+final class UnsubscribeUserCommand implements Command
 {
-    public const COMMAND = ['/unsubscribe', '/unsub'];
+    public const array COMMAND = ['/unsubscribe', '/unsub'];
 
     private UserReference $reference;
 
