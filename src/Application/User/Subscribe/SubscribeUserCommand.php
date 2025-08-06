@@ -8,7 +8,7 @@ use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserReference;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserUsername;
 use Assert\Assert;
 
-final class SubscribeUserCommand implements Command
+final readonly class SubscribeUserCommand implements Command
 {
     public const array COMMAND = ['/subscribe', '/sub'];
 

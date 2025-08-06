@@ -4,7 +4,7 @@ namespace AdnanMula\Skeleton\Application\User\Subscribe;
 
 use AdnanMula\Skeleton\Domain\Service\User\UserCreator;
 
-final class SubscribeUserCommandHandler
+final readonly class SubscribeUserCommandHandler
 {
     private UserCreator $creator;
 

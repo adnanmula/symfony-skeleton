@@ -6,7 +6,7 @@ use AdnanMula\Skeleton\Application\Shared\Command;
 use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserReference;
 use Assert\Assert;
 
-final class UnsubscribeUserCommand implements Command
+final readonly class UnsubscribeUserCommand implements Command
 {
     public const array COMMAND = ['/unsubscribe', '/unsub'];
 

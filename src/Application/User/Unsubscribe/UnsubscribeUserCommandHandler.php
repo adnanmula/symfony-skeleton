@@ -4,7 +4,7 @@ namespace AdnanMula\Skeleton\Application\User\Unsubscribe;
 
 use AdnanMula\Skeleton\Domain\Service\User\UserRemover;
 
-final class UnsubscribeUserCommandHandler
+final readonly class UnsubscribeUserCommandHandler
 {
     private UserRemover $remover;
 

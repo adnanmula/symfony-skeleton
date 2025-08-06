@@ -36,14 +36,14 @@ init: ## initialize environment
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:init"
 
 .PHONY: migrations
-migrations: ## run grumphp
+migrations: ## run phinx migrations
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:migrations"
 
-createdb: ## run grumphp
+createdb: ## create db
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console skeleton:env:database"
 
 .PHONY: fixtures
-fixtures: ## run grumphp
+fixtures: ## load fixtures
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:fixtures"
 
 # Tools

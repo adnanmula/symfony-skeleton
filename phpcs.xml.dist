@@ -2,6 +2,7 @@
 
 <ruleset name="Project rules">
   <file>src</file>
+  <file>tests</file>
   <exclude-pattern>src/Kernel.php</exclude-pattern>
   <exclude-pattern>db</exclude-pattern>
   <exclude-pattern>/config/bundles.php</exclude-pattern>
