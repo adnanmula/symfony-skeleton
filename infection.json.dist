@@ -1,0 +1,27 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "Kernel.php",
+            "Entrypoint",
+            "Infrastructure"
+        ]
+    },
+    "logs": {
+        "text": "var/log/infection.log",
+        "summary": "var/log/summary.log",
+        "debug": "var/log/debug.log",
+        "perMutator": "var/log/per-mutator.md"
+    },
+    "mutators": {
+        "@default": true
+    },
+    "testFramework": "phpunit",
+    "bootstrap": "config/bootstrap.php",
+    "timeout": 10,
+    "minMsi": 60,
+    "minCoveredMsi": 70
+}

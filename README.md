@@ -36,6 +36,7 @@ The project uses several tools to ensure code quality:
 - **PHP_CodeSniffer**: Code style checker (`make cs`)
 - **PHPUnit**: Unit testing framework (`make tests`)
 - **Behat**: Behavior testing framework (`make behat`)
+- **Infection**: Mutation testing framework (`make mutation`)
 
 ## Docker Environment
 
@@ -60,4 +61,5 @@ Database migrations are managed with Phinx:
 ```bash
 make tests    # Run PHPUnit tests
 make behat    # Run Behat tests
+make mutation # Run mutation tests with Infection
 ```

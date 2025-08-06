@@ -62,3 +62,6 @@ cs: ## check code style
 
 grump: ## run grumphp
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "grumphp run"
+
+mutation: ## run mutation tests
+	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "infection --threads=4"
