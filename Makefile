@@ -29,6 +29,9 @@ update: ## update dependencies
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "composer update"
 
 # Environment
+clear: ## clear cache
+	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console cache:clear"
+
 init: ## initialize environment
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "console environment:init"
 
