@@ -3,11 +3,15 @@ RUN apk update && apk add --no-cache \
     oniguruma-dev \
     postgresql-dev \
     git \
+    linux-headers \
+    $PHPIZE_DEPS \
     && docker-php-ext-install -j$(nproc) \
         bcmath \
         mbstring \
         pdo \
-        pdo_pgsql
+        pdo_pgsql \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 RUN mkdir /.composer \
     && chown -R www-data:www-data /.composer

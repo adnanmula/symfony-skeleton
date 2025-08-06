@@ -49,7 +49,7 @@ fixtures: ## load fixtures
 # Tools
 .PHONY: tests
 tests: ## execute project unit tests
-	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "phpunit --order=random"
+	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "phpunit"
 
 behat:
 	docker compose -f ${FILE} exec --user=${UID} php-fpm sh -c "behat --colors"
