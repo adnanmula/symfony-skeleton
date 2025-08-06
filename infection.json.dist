@@ -22,6 +22,6 @@
     "testFramework": "phpunit",
     "bootstrap": "config/bootstrap.php",
     "timeout": 10,
-    "minMsi": 60,
-    "minCoveredMsi": 70
+    "minMsi": 80,
+    "minCoveredMsi": 80
 }

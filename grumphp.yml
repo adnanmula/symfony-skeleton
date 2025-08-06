@@ -23,7 +23,4 @@ grumphp:
       project: '8.4'
     infection:
       threads: 4
-      min_msi: 60
-      min_covered_msi: 70
       configuration: infection.json.dist
-      test_framework: phpunit

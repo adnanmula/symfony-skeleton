@@ -8,13 +8,23 @@ use AdnanMula\Skeleton\Domain\Model\User\Exception\UserNotExistsException;
 use AdnanMula\Skeleton\Domain\Model\User\UserRepository;
 use AdnanMula\Skeleton\Domain\Service\User\UserRemover;
 use AdnanMula\Skeleton\Tests\Mock\Domain\Model\User\UserMotherObject;
+use Assert\LazyAssertionException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 final class UnsubscribeUserCommandHandlerTest extends TestCase
 {
     private MockObject $repository;
     private UnsubscribeUserCommandHandler $handler;
+
+    /** @test */
+    public function given_bad_command_then_throw_exception(): void
+    {
+        $this->expectException(LazyAssertionException::class);
+
+        new UnsubscribeUserCommand('');
+    }
 
     /** @test */
     public function given_subscribed_user_then_unsubscribe(): void
@@ -37,6 +47,7 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
     public function given_unsubscribed_user_then_throw_exception(): void
     {
         $this->expectException(UserNotExistsException::class);
+        $this->expectExceptionCode(Response::HTTP_NOT_FOUND);
 
         $reference = UserMotherObject::MOCK_REF;
 

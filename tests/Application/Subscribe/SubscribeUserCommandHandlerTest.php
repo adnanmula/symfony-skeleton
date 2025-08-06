@@ -8,13 +8,23 @@ use AdnanMula\Skeleton\Domain\Model\User\Exception\UserAlreadyExistsException;
 use AdnanMula\Skeleton\Domain\Model\User\UserRepository;
 use AdnanMula\Skeleton\Domain\Service\User\UserCreator;
 use AdnanMula\Skeleton\Tests\Mock\Domain\Model\User\UserMotherObject;
+use Assert\LazyAssertionException;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 final class SubscribeUserCommandHandlerTest extends TestCase
 {
     private MockObject $repository;
     private SubscribeUserCommandHandler $handler;
+
+    /** @test */
+    public function given_bad_command_then_throw_exception(): void
+    {
+        $this->expectException(LazyAssertionException::class);
+
+        new SubscribeUserCommand('', '', '');
+    }
 
     /** @test */
     public function given_unsubscribed_user_then_subscribe(): void
@@ -39,6 +49,7 @@ final class SubscribeUserCommandHandlerTest extends TestCase
     public function given_subscribed_user_then_throw_exception(): void
     {
         $this->expectException(UserAlreadyExistsException::class);
+        $this->expectExceptionCode(Response::HTTP_CONFLICT);
 
         $id = UserMotherObject::MOCK_ID;
         $reference = UserMotherObject::MOCK_REF;
