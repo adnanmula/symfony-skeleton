@@ -8,12 +8,9 @@ use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserReference;
 
 final class UserRemover
 {
-    private UserRepository $repository;
-
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-    }
+    public function __construct(
+        private UserRepository $repository,
+    ) {}
 
     public function execute(UserReference $reference): void
     {

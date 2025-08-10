@@ -9,12 +9,9 @@ use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserId;
 
 final class UserFinder
 {
-    private UserRepository $repository;
-
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-    }
+    public function __construct(
+        private UserRepository $repository,
+    ) {}
 
     public function execute(UserId $id): User
     {

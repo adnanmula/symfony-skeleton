@@ -8,14 +8,11 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-final class FeatureContext implements Context
+final readonly class FeatureContext implements Context
 {
-    private KernelInterface $kernel;
-
-    public function __construct(KernelInterface $kernel)
-    {
-        $this->kernel = $kernel;
-    }
+    public function __construct(
+        private KernelInterface $kernel,
+    ) {}
 
     /** @Given the environment is clean */
     public function cleanEnvironment(): void

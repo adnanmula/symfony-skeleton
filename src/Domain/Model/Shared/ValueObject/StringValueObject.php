@@ -4,12 +4,9 @@ namespace AdnanMula\Skeleton\Domain\Model\Shared\ValueObject;
 
 class StringValueObject
 {
-    private string $value;
-
-    final protected function __construct(string $value)
-    {
-        $this->value = $value;
-    }
+    final protected function __construct(
+        private string $value,
+    ) {}
 
     public function value(): string
     {

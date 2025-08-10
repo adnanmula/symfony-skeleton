@@ -6,12 +6,9 @@ use AdnanMula\Skeleton\Domain\Service\User\UserRemover;
 
 final readonly class UnsubscribeUserCommandHandler
 {
-    private UserRemover $remover;
-
-    public function __construct(UserRemover $remover)
-    {
-        $this->remover = $remover;
-    }
+    public function __construct(
+        private UserRemover $remover,
+    ) {}
 
     public function __invoke(UnsubscribeUserCommand $command): void
     {

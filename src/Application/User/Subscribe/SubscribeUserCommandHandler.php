@@ -6,12 +6,9 @@ use AdnanMula\Skeleton\Domain\Service\User\UserCreator;
 
 final readonly class SubscribeUserCommandHandler
 {
-    private UserCreator $creator;
-
-    public function __construct(UserCreator $creator)
-    {
-        $this->creator = $creator;
-    }
+    public function __construct(
+        private UserCreator $creator,
+    ) {}
 
     public function __invoke(SubscribeUserCommand $command): void
     {

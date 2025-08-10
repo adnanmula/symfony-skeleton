@@ -16,16 +16,11 @@ final class TelegramGetUpdatesCommand extends Command
 {
     public const string NAME = 'skeleton:telegram:update';
 
-    private string $token;
-    private CommunicationClient $communication;
-    private MessageBusInterface $bus;
-
-    public function __construct(string $token, CommunicationClient $communication, MessageBusInterface $bus)
-    {
-        $this->token = $token;
-        $this->communication = $communication;
-        $this->bus = $bus;
-
+    public function __construct(
+        private readonly string $token,
+        private readonly CommunicationClient $communication,
+        private readonly MessageBusInterface $bus,
+    ) {
         parent::__construct(null);
     }
 
@@ -41,7 +36,7 @@ final class TelegramGetUpdatesCommand extends Command
 
         $client->getUpdates();
 
-        for ($i = 0; $i < $client->UpdateCount(); $i++) {
+        for ($i = 0; $i < $client->UpdateCount(); ++$i) {
             $client->serveUpdate($i);
 
             $command = $this->getCommand(

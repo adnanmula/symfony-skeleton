@@ -11,12 +11,9 @@ use AdnanMula\Skeleton\Domain\Model\User\ValueObject\UserUsername;
 
 final class UserCreator
 {
-    private UserRepository $repository;
-
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-    }
+    public function __construct(
+        private UserRepository $repository,
+    ) {}
 
     public function execute(UserId $id, UserReference $reference, UserUsername $username): void
     {

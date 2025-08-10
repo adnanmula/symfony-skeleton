@@ -12,14 +12,10 @@ final class LoadFixturesCommand extends Command
 {
     public const string NAME = 'environment:fixtures';
 
-    private FixturesRegistry $registry;
-    private Connection $connection;
-
-    public function __construct(FixturesRegistry $registry, Connection $connection)
-    {
-        $this->registry = $registry;
-        $this->connection = $connection;
-
+    public function __construct(
+        private readonly FixturesRegistry $registry,
+        private readonly Connection $connection,
+    ) {
         parent::__construct(null);
     }
 

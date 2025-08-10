@@ -10,16 +10,11 @@ final class User
 {
     private const string MODEL_NAME = 'user';
 
-    private UserId $id;
-    private UserReference $reference;
-    private UserUsername $username;
-
-    private function __construct(UserId $id, UserReference $reference, UserUsername $username)
-    {
-        $this->id = $id;
-        $this->reference = $reference;
-        $this->username = $username;
-    }
+    private function __construct(
+        private UserId $id,
+        private UserReference $reference,
+        private UserUsername $username,
+    ) {}
 
     public static function create(UserId $id, UserReference $reference, UserUsername $username): self
     {
