@@ -18,16 +18,14 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private UnsubscribeUserCommandHandler $handler;
 
-    /** @test */
-    public function given_bad_command_then_throw_exception(): void
+    public function testGivenBadCommandThenThrowException(): void
     {
         $this->expectException(LazyAssertionException::class);
 
         new UnsubscribeUserCommand('');
     }
 
-    /** @test */
-    public function given_subscribed_user_then_unsubscribe(): void
+    public function testGivenSubscribedUserThenUnsubscribe(): void
     {
         $reference = UserMotherObject::MOCK_REF;
 
@@ -43,8 +41,7 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
         ($this->handler)($this->command($reference));
     }
 
-    /** @test */
-    public function given_unsubscribed_user_then_throw_exception(): void
+    public function testGivenUnsubscribedUserThenThrowException(): void
     {
         $this->expectException(UserNotExistsException::class);
         $this->expectExceptionCode(Response::HTTP_NOT_FOUND);

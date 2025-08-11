@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false" colors="true" bootstrap="config/bootstrap.php" cacheResultFile="var/cache/.phpunit.result.cache" executionOrder="random" resolveDependencies="true">
-  <coverage processUncoveredFiles="true" cacheDirectory="var/cache/code-coverage">
-    <include>
-      <directory suffix=".php">./src</directory>
-    </include>
-    <exclude>
-      <directory>./vendor</directory>
-      <directory>./src/Kernel.php</directory>
-      <directory>./src/Entrypoint</directory>
-      <directory>./src/Infrastructure</directory>
-    </exclude>
-    <report>
-      <clover outputFile="var/log/clover.xml"/>
-      <html outputDirectory="var/log/code-coverage" lowUpperBound="35" highLowerBound="70"/>
-      <text outputFile="php://stdout" showUncoveredFiles="false" showOnlySummary="true"/>
-    </report>
-  </coverage>
+<phpunit backupGlobals="false" colors="true" bootstrap="config/bootstrap.php" cacheDirectory="var/.phpunit.cache" executionOrder="random" resolveDependencies="true">
   <php>
     <ini name="error_reporting" value="-1"/>
     <env name="APP_ENV" value="test"/>
@@ -26,4 +10,22 @@
       <directory>tests</directory>
     </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <exclude>
+      <directory>./vendor</directory>
+      <file>./src/Kernel.php</file>
+      <directory>./src/Entrypoint</directory>
+      <directory>./src/Infrastructure</directory>
+    </exclude>
+  </source>
+  <coverage>
+    <report>
+      <clover outputFile="var/log/clover.xml"/>
+      <html outputDirectory="var/log/code-coverage" lowUpperBound="35" highLowerBound="70"/>
+      <text outputFile="php://stdout" showUncoveredFiles="false" showOnlySummary="true"/>
+    </report>
+  </coverage>
 </phpunit>

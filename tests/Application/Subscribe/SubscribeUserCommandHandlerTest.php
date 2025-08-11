@@ -18,16 +18,14 @@ final class SubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private SubscribeUserCommandHandler $handler;
 
-    /** @test */
-    public function given_bad_command_then_throw_exception(): void
+    public function testGivenBadCommandThenThrowException(): void
     {
         $this->expectException(LazyAssertionException::class);
 
         new SubscribeUserCommand('', '', '');
     }
 
-    /** @test */
-    public function given_unsubscribed_user_then_subscribe(): void
+    public function testGivenUnsubscribedUserThenSubscribe(): void
     {
         $id = UserMotherObject::MOCK_ID;
         $reference = UserMotherObject::MOCK_REF;
@@ -45,8 +43,7 @@ final class SubscribeUserCommandHandlerTest extends TestCase
         ($this->handler)($this->command($id, $reference, $name));
     }
 
-    /** @test */
-    public function given_subscribed_user_then_throw_exception(): void
+    public function testGivenSubscribedUserThenThrowException(): void
     {
         $this->expectException(UserAlreadyExistsException::class);
         $this->expectExceptionCode(Response::HTTP_CONFLICT);
