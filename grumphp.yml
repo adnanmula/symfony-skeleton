@@ -20,7 +20,7 @@ grumphp:
       format: ~
       stop_on_failure: false
     phpversion:
-      project: '8.4'
+      project: '8.5'
     infection:
       threads: 4
       configuration: infection.json.dist

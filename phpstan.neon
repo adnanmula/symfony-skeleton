@@ -1,5 +1,6 @@
 parameters:
     level: 6
+    treatPhpDocTypesAsCertain: false
     paths:
         -   src
         -   tests
@@ -7,6 +8,7 @@ parameters:
         -   public/*
         -   src/Kernel.php
         -   config/bootstrap.php
+        -   config/reference.php
     ignoreErrors:
         - identifier: missingType.iterableValue
         -

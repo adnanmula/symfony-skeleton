@@ -9,6 +9,7 @@ use AdnanMula\Skeleton\Domain\Model\User\UserRepository;
 use AdnanMula\Skeleton\Domain\Service\User\UserCreator;
 use AdnanMula\Skeleton\Tests\Mock\Domain\Model\User\UserMotherObject;
 use Assert\LazyAssertionException;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,16 @@ final class SubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private SubscribeUserCommandHandler $handler;
 
+    protected function setUp(): void
+    {
+        $this->repository = $this->createMock(UserRepository::class);
+
+        $this->handler = new SubscribeUserCommandHandler(
+            new UserCreator($this->repository),
+        );
+    }
+
+    #[AllowMockObjectsWithoutExpectations]
     public function testGivenBadCommandThenThrowException(): void
     {
         $this->expectException(LazyAssertionException::class);
@@ -60,15 +71,6 @@ final class SubscribeUserCommandHandlerTest extends TestCase
         $this->repository->expects($this->never())->method('save');
 
         ($this->handler)($this->command($id, $reference, $name));
-    }
-
-    protected function setUp(): void
-    {
-        $this->repository = $this->createMock(UserRepository::class);
-
-        $this->handler = new SubscribeUserCommandHandler(
-            new UserCreator($this->repository),
-        );
     }
 
     private function command(string $id, string $reference, string $username): SubscribeUserCommand

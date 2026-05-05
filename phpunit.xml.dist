@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false" colors="true" bootstrap="config/bootstrap.php" cacheDirectory="var/.phpunit.cache" executionOrder="random" resolveDependencies="true">
+<phpunit
+  backupGlobals="false"
+  colors="true"
+  bootstrap="config/bootstrap.php"
+  cacheDirectory="var/.phpunit.cache"
+  executionOrder="random"
+  resolveDependencies="true"
+>
   <php>
     <ini name="error_reporting" value="-1"/>
     <env name="APP_ENV" value="test"/>

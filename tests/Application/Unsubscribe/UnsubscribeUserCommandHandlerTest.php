@@ -9,6 +9,7 @@ use AdnanMula\Skeleton\Domain\Model\User\UserRepository;
 use AdnanMula\Skeleton\Domain\Service\User\UserRemover;
 use AdnanMula\Skeleton\Tests\Mock\Domain\Model\User\UserMotherObject;
 use Assert\LazyAssertionException;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,16 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
     private MockObject $repository;
     private UnsubscribeUserCommandHandler $handler;
 
+    protected function setUp(): void
+    {
+        $this->repository = $this->createMock(UserRepository::class);
+
+        $this->handler = new UnsubscribeUserCommandHandler(
+            new UserRemover($this->repository),
+        );
+    }
+
+    #[AllowMockObjectsWithoutExpectations]
     public function testGivenBadCommandThenThrowException(): void
     {
         $this->expectException(LazyAssertionException::class);
@@ -54,15 +65,6 @@ final class UnsubscribeUserCommandHandlerTest extends TestCase
             ->willReturn(null);
 
         ($this->handler)($this->command($reference));
-    }
-
-    protected function setUp(): void
-    {
-        $this->repository = $this->createMock(UserRepository::class);
-
-        $this->handler = new UnsubscribeUserCommandHandler(
-            new UserRemover($this->repository),
-        );
     }
 
     private function command(string $reference): UnsubscribeUserCommand
