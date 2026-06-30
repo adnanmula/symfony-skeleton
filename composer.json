@@ -29,7 +29,7 @@
         "friends-of-behat/symfony-extension": "^2.4",
         "infection/infection": "^0.31",
         "phpro/grumphp": "^2.9",
-        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^12"
     },
     "config": {

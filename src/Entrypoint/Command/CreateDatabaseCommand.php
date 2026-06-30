@@ -27,7 +27,9 @@ final class CreateDatabaseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $dbName = $this->connection->getParams()['dbname'];
+        /** @var array{'dbname': string} $params */
+        $params = $this->connection->getParams();
+        $dbName = $params['dbname'];
 
         try {
             $this->defaultConnection->createSchemaManager()->dropDatabase($dbName);

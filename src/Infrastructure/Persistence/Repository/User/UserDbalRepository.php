@@ -27,6 +27,7 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
 
     public function byId(UserId $id): ?User
     {
+        /** @var array|false $result */
         $result = $this->connection
             ->createQueryBuilder()
             ->select('a.id, a.reference, a.username')
@@ -46,6 +47,7 @@ final class UserDbalRepository extends DbalRepository implements UserRepository
 
     public function byReference(UserReference $reference): ?User
     {
+        /** @var array|false $result */
         $result = $this->connection
             ->createQueryBuilder()
             ->select('a.id, a.reference, a.username')

@@ -26,7 +26,7 @@ final class DbalTransactionalMiddleware implements MiddlewareInterface
 
             return $envelope;
         } catch (\Throwable $exception) {
-            $this->connection->rollback();
+            $this->connection->rollBack();
 
             throw $exception;
         }
