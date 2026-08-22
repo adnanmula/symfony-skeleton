@@ -66,6 +66,6 @@ final class UserFixtures extends DbalFixture implements Fixture
         $stmt->bindValue(':reference', $user->reference()->value());
         $stmt->bindValue(':username', $user->username()->value());
 
-        $stmt->execute();
+        $stmt->executeStatement();
     }
 }

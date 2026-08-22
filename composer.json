@@ -10,24 +10,22 @@
         "ext-json": "*",
         "adnanmula/telegram-send-message": "^0.0.5",
         "beberlei/assert": "^3.3",
-        "doctrine/dbal": "^3.9",
+        "doctrine/dbal": "^4.4",
         "eleirbag89/telegrambotphp": "^1.4",
         "ramsey/uuid": "^4.0",
         "robmorgan/phinx": "^0.16",
-        "symfony/console": "7.4.*",
-        "symfony/dotenv": "7.4.*",
+        "symfony/console": "8.1.*",
+        "symfony/dotenv": "8.1.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.4.*",
-        "symfony/http-client": "7.4.*",
-        "symfony/messenger": "7.4.*",
-        "symfony/twig-bundle": "7.4.*",
-        "symfony/yaml": "7.4.*"
+        "symfony/framework-bundle": "8.1.*",
+        "symfony/http-client": "8.1.*",
+        "symfony/messenger": "8.1.*",
+        "symfony/twig-bundle": "8.1.*",
+        "symfony/yaml": "8.1.*"
     },
     "require-dev": {
-        "adnanmula/coding-standard": "^0.0.13",
-        "behat/behat": "^3.13",
-        "friends-of-behat/symfony-extension": "^2.4",
-        "infection/infection": "^0.31",
+        "adnanmula/coding-standard": "^0.0.14",
+        "infection/infection": "^0.35",
         "phpro/grumphp": "^2.9",
         "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^12"
@@ -89,7 +87,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.4.*"
+            "require": "8.1.*"
         }
     }
 }

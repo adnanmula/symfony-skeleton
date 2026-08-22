@@ -15,10 +15,6 @@ grumphp:
       configuration: ~
       memory_limit: "512M"
     phpunit: ~
-    behat:
-      config: ~
-      format: ~
-      stop_on_failure: false
     phpversion:
       project: '8.5'
     infection:
